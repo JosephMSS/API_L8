@@ -7,9 +7,10 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-    public function index()
+    public function index() 
     {
-        $posts=Post::latest()->paginate();
-        return view('index',compact('posts'));
+        return view('index', [
+            'posts' => Post::latest()->paginate()
+        ]);
     }
 }
